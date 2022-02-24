@@ -38,6 +38,22 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetEstoqueEspecifico), new { id = newEstoque.Id }, newEstoque);
         }
 
+        [Route("postAll")]
+        [HttpPost]
+        public IActionResult postArrayProdutos([FromBody] List<T_ESTOQUE> estoque)
+        {
+            if (estoque == null)
+                return BadRequest();
+
+            foreach (var item in estoque)
+            {
+                estoqueRepository.Create(item);
+            }
+
+            return new NoContentResult();
+
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
