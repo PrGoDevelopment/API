@@ -38,16 +38,17 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetEstoqueEspecifico), new { id = newEstoque.Id }, newEstoque);
         }
 
-        [Route("postAll")]
+        // INSERÇÃO DE UMA LIST 
+        [Route("listaProdutos")]
         [HttpPost]
-        public IActionResult postArrayProdutos([FromBody] List<T_ESTOQUE> estoque)
+        public async Task<IActionResult> postArrayProdutos([FromBody] List<T_ESTOQUE> estoque)
         {
             if (estoque == null)
                 return BadRequest();
 
             foreach (var item in estoque)
             {
-                estoqueRepository.Create(item);
+                await estoqueRepository.Create(item);
             }
 
             return new NoContentResult();
