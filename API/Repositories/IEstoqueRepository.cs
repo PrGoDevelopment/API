@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Repositories
 {
-    public interface IT_ESTOQUE_Repository
+    public interface IEstoqueRepository
     {
         Task<IEnumerable<T_ESTOQUE>> Get();
 

@@ -11,10 +11,10 @@ namespace API.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class T_ESTOQUE_Controller : ControllerBase
+    public class EstoqueController : ControllerBase
     {
-        private readonly IT_ESTOQUE_Repository estoqueRepository;
-        public T_ESTOQUE_Controller(IT_ESTOQUE_Repository estqRepository)
+        private readonly IEstoqueRepository estoqueRepository;
+        public EstoqueController(IEstoqueRepository estqRepository)
         {
             estoqueRepository = estqRepository;
         }

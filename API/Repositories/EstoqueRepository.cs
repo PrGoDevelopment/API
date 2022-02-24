@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace API.Repositories
 {
-    public class T_ESTOQUE_Repository : IT_ESTOQUE_Repository
+    public class EstoqueRepository : IEstoqueRepository
     {
-        public readonly T_ESTOQUE_Context _context;
+        public readonly EstoqueContext _context;
 
-        public T_ESTOQUE_Repository(T_ESTOQUE_Context context)
+        public EstoqueRepository(EstoqueContext context)
         {
             _context = context;
         }

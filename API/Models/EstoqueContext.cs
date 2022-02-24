@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    public class T_ESTOQUE_Context : DbContext
+    public class EstoqueContext : DbContext
     {
-        public T_ESTOQUE_Context(DbContextOptions<T_ESTOQUE_Context> options) : base(options)
+        public EstoqueContext(DbContextOptions<EstoqueContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

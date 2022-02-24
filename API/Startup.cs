@@ -29,8 +29,8 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<T_ESTOQUE_Context>(x => x.UseSqlite("Data source=DB_ESTOQUE.db3"));
-            services.AddScoped<IT_ESTOQUE_Repository, T_ESTOQUE_Repository>();
+            services.AddDbContext<EstoqueContext>(x => x.UseSqlite("Data source=DB_ESTOQUE.db3"));
+            services.AddScoped<IEstoqueRepository, EstoqueRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
