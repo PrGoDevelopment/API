@@ -39,7 +39,6 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-
         public async Task<ActionResult> Delete(int id)
         {
             var estoqueDelete = await estoqueRepository.Get(id);
