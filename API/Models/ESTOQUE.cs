@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    public class T_ESTOQUE
+    public class ESTOQUE
     {
         public int Id { get; set; }
         public string Nome { get; set; }

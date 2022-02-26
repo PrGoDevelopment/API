@@ -8,13 +8,13 @@ namespace API.Repositories
 {
     public interface IEstoqueRepository
     {
-        Task<IEnumerable<T_ESTOQUE>> Get();
+        Task<IEnumerable<ESTOQUE>> Get();
 
-        Task<T_ESTOQUE> Get(int Id);
+        Task<ESTOQUE> Get(int Id);
 
-        Task<T_ESTOQUE> Create(T_ESTOQUE estoque);
+        Task<ESTOQUE> Create(ESTOQUE estoque);
 
-        Task Update(T_ESTOQUE estoque);
+        Task Update(ESTOQUE estoque);
 
         Task Delete(int Id);
     }

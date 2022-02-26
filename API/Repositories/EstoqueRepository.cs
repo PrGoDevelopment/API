@@ -15,7 +15,7 @@ namespace API.Repositories
         {
             _context = context;
         }
-        public async Task<T_ESTOQUE> Create(T_ESTOQUE estoque)
+        public async Task<ESTOQUE> Create(ESTOQUE estoque)
         {
             _context.Estoques.Add(estoque);
             await _context.SaveChangesAsync();
@@ -30,17 +30,17 @@ namespace API.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T_ESTOQUE>> Get()
+        public async Task<IEnumerable<ESTOQUE>> Get()
         {
             return await _context.Estoques.ToListAsync();
         }
 
-        public async Task<T_ESTOQUE> Get(int id)
+        public async Task<ESTOQUE> Get(int id)
         {
             return await _context.Estoques.FindAsync(id);
         }
 
-        public async Task Update(T_ESTOQUE estoque)
+        public async Task Update(ESTOQUE estoque)
         {
             _context.Entry(estoque).State = EntityState.Modified;
             await _context.SaveChangesAsync();

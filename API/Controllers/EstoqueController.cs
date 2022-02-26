@@ -20,28 +20,28 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<T_ESTOQUE>> GetEstoque()
+        public async Task<IEnumerable<ESTOQUE>> GetEstoque()
         {
             return await estoqueRepository.Get();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<T_ESTOQUE>> GetEstoqueEspecifico(int id)
+        public async Task<ActionResult<ESTOQUE>> GetEstoqueEspecifico(int id)
         {
             return await estoqueRepository.Get(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<T_ESTOQUE>> PostEstoque([FromBody] T_ESTOQUE estoque)
+        public async Task<ActionResult<ESTOQUE>> PostEstoque([FromBody] ESTOQUE estoque)
         {
             var newEstoque = await estoqueRepository.Create(estoque);
             return CreatedAtAction(nameof(GetEstoqueEspecifico), new { id = newEstoque.Id }, newEstoque);
         }
 
         // INSERÇÃO DE UMA LIST 
-        [Route("listaProdutos")]
+        [Route("listaEstoquePost")]
         [HttpPost]
-        public async Task<IActionResult> postArrayProdutos([FromBody] List<T_ESTOQUE> estoque)
+        public async Task<IActionResult> postListEstoque([FromBody] List<ESTOQUE> estoque)
         {
             if (estoque == null)
                 return BadRequest();
@@ -52,7 +52,6 @@ namespace API.Controllers
             }
 
             return new NoContentResult();
-
         }
 
         [HttpDelete("{id}")]
@@ -65,17 +64,31 @@ namespace API.Controllers
 
             await estoqueRepository.Delete(estoqueDelete.Id);
             return NoContent();
-
-
         }
 
         [HttpPut]
-        public async Task<ActionResult> PutEstoque(int id, [FromBody] T_ESTOQUE estoque)
+        public async Task<ActionResult> PutEstoque(int id, [FromBody] ESTOQUE estoque)
         {
             if (id != estoque.Id)
                 return BadRequest();
 
             await estoqueRepository.Update(estoque);
+
+            return NoContent();
+        }
+
+        // UPDATE DE UMA LIST 
+        [Route("listaEstoquePut")]
+        [HttpPut]
+        public async Task<IActionResult> PutListEstoque([FromBody] List<ESTOQUE> estoque)
+        {
+            if (estoque == null)
+                return BadRequest();
+
+            foreach (var item in estoque)
+            {
+                await estoqueRepository.Update(item);
+            }
 
             return NoContent();
         }

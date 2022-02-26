@@ -13,6 +13,6 @@ namespace API.Models
             Database.EnsureCreated();
         }
 
-        public DbSet<T_ESTOQUE> Estoques { get; set; }
+        public DbSet<ESTOQUE> Estoques { get; set; }
     }
 }
